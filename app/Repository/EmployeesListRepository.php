@@ -4,9 +4,7 @@ namespace app\Repository;
 
 use app\DB;
 use app\Model\Employee;
-use app\Model\Employees;
 use app\Model\ListEmployees;
-use app\Model\RoleEmployees;
 use PDO;
 
 /**
@@ -20,11 +18,11 @@ class EmployeesListRepository
      */
     public function all(): ListEmployees
     {
-        $db = DB::pdo();
-        $sql = "SELECT er.name , e.fio , e.email  FROM employees e
-        INNER JOIN employees_role er ON e.employees_role_id = er.id";
+        $connect = DB::pdo();
+        $sql = "SELECT er.name , e.fio , e.email  FROM employee e
+        INNER JOIN employee_role er ON e.employee_role_id = er.id";
 
-        $stmt = $db->query($sql);
+        $stmt = $connect->query($sql);
 
         $fetchAll = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
