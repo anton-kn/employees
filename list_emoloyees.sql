@@ -30,7 +30,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`),
   KEY `employees_FK` (`employee_role_id`),
   CONSTRAINT `employees_FK` FOREIGN KEY (`employee_role_id`) REFERENCES `employee_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Иванов Иван Иванович','ivanov_ii@mail.ru',2),(2,'Волкова Светлана Александровна','volkova_sa@mail.ru',1),(3,'Смирнов Леонид Викторович','smirnov_lv@mail.ru',3),(4,'Краснова Марина Степановна','krasnova_ms@mail.ru',3),(5,'Пономарев Алексей Иванович','ponomarev_ai@mail.ru',3);
+INSERT INTO `employee` VALUES (1,'Иванов Иван Иванович','ivanov_ii@mail.ru',2),(2,'Волкова Светлана Александровна','volkova_sa@mail.ru',1),(3,'Смирнов Леонид Викторович','smirnov_lv@mail.ru',3),(4,'Краснова Марина Степановна','krasnova_ms@mail.ru',3),(5,'Пономарев Алексей Иванович','ponomarev_ai@mail.ru',3),(6,'Иванов Леонид Викторович','ivanov_lv@mail.ru',2);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `request` (
   KEY `request_FK_1` (`to_emoloyee_id`),
   CONSTRAINT `request_FK` FOREIGN KEY (`from_employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `request_FK_1` FOREIGN KEY (`to_emoloyee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `request` (
 
 LOCK TABLES `request` WRITE;
 /*!40000 ALTER TABLE `request` DISABLE KEYS */;
-INSERT INTO `request` VALUES (33,'Сделать полку',2,1),(34,'Сделать стол',1,3),(35,'Поменять лампочку',5,NULL);
+INSERT INTO `request` VALUES (33,'Сделать полку в комнате ....',2,4),(34,'Сделать стол',1,3),(35,'Поменять лампочку',5,NULL),(37,'Установить дверь',4,1),(38,'Купить ...',NULL,2),(39,'Установить ...',4,1),(40,'Убрать ...',NULL,2);
 /*!40000 ALTER TABLE `request` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -106,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-25  1:13:25
+-- Dump completed on 2023-09-25 23:42:22
